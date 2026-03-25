@@ -7,6 +7,8 @@ import Image from "next/image";
 export default function Home() {
   useEffect(() => {
     logger.info("Page loaded");
+    logger.debug("Debug: component mounted successfully");
+    logger.error("Error: sample error for testing");
   }, []);
 
   return (
@@ -20,9 +22,10 @@ export default function Home() {
           height={20}
           priority
         />
-        <div>
-          <h1>Hello</h1>
-          <button onClick={() => logger.info("Button clicked")}>Click me</button>
+        <div className="flex gap-4">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded" onClick={() => logger.info("Button clicked - INFO")}>Test INFO</button>
+          <button className="px-4 py-2 bg-gray-500 text-white rounded" onClick={() => logger.debug("Button clicked - DEBUG")}>Test DEBUG</button>
+          <button className="px-4 py-2 bg-red-500 text-white rounded" onClick={() => logger.error("Button clicked - ERROR")}>Test ERROR</button>
         </div>
           <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
