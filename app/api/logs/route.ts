@@ -37,9 +37,6 @@ async function ensureLogStream(streamName: string) {
 }
 
 export async function POST(request: Request) {
-  console.log("CW_ACCESS_KEY_ID present:", !!process.env.CW_ACCESS_KEY_ID);
-  console.log("CW_SECRET_ACCESS_KEY present:", !!process.env.CW_SECRET_ACCESS_KEY);
-  console.log("CW_REGION:", process.env.CW_REGION);
   try {
     const { level, message } = await request.json();
 
