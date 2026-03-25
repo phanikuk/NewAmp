@@ -6,7 +6,11 @@ import {
 } from "@aws-sdk/client-cloudwatch-logs";
 
 const client = new CloudWatchLogsClient({
-  region: process.env.AWS_REGION || "us-east-1",
+  region: process.env.CW_REGION || "us-east-1",
+  credentials: {
+    accessKeyId: process.env.CW_ACCESS_KEY_ID || "",
+    secretAccessKey: process.env.CW_SECRET_ACCESS_KEY || "",
+  },
 });
 
 const LOG_GROUP = process.env.CLOUDWATCH_LOG_GROUP || "/amplify/clientlogs";
